@@ -1,19 +1,30 @@
 package com.example.cassandra.springbootcassandrademo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
+import org.springframework.data.annotation.Id;
 
-@Table
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Table("product")
 public class Product {
 
-    @PrimaryKey
+    @Id
     private int id;
+
     private String name;
 
+    // Getters et setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

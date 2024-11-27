@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:4200") 
 public class ProductController {
 
     @Autowired
@@ -40,16 +41,6 @@ public class ProductController {
         return productRepository.findAll();
     }
 
-    @PutMapping("products/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable(value = "id") Integer productId,
-                                                  @RequestBody Product productDetails) {
-        Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new ResouceNotFoundException("Product not found for this id :: " + productId));
-        product.setName(productDetails.getName());
-        final Product updatedProduct = productRepository.save(product);
-        return ResponseEntity.ok(updatedProduct);
-
-    }
 
     @DeleteMapping("products/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable(value = "id") Integer productId) {
