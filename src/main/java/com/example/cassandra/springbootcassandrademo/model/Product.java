@@ -10,8 +10,9 @@ public class Product {
     private int id;
 
     private String name;
+    private double price;  // Added price field
 
-    // Getters et setters
+    // Getters and setters
     public int getId() {
         return id;
     }
@@ -26,5 +27,13 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getPrice() {  // Getter for price
+        return price;
+    }
+
+    public void setPrice(double price) {  // Setter for price
+        this.price = price;
     }
 }
